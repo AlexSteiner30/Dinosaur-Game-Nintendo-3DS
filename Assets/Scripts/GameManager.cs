@@ -120,8 +120,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
         }
 
-        print("Game Over!");
-
         StartCoroutine(NewGame());
     }
 
