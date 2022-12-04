@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOver;
+
     [SerializeField] private Transform spawner;
     [SerializeField] private GameObject[] catcti;
     [SerializeField] private GameObject bird;
 
-    [SerializeField] private float speed = 5;
+    [SerializeField] public float speed = 5;
     [SerializeField] private float spawningSpeed = 5;
     [SerializeField] private bool alive;
 
     private void Start()
     {
+        alive = true;
+
         StartCoroutine(Spawn());
     }
 
@@ -36,5 +41,27 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(spawningSpeed);
         }
+    }
+
+    public void GameOver()
+    {
+        alive = false;
+        Time.timeScale = 0f;
+
+        gameOver.SetActive(true);
+
+        print("Game Over!");
+
+        StartCoroutine(NewGame());
+    }
+
+    IEnumerator NewGame()
+    {
+        while (!Input.GetKeyDown(KeyCode.Space))
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameManager gameManager;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        transform.position -= new Vector3(gameManager.speed * Time.deltaTime, 0);
     }
 }
