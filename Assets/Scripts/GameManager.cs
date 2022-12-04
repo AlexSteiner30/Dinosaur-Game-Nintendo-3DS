@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreTxt;
-    [SerializeField] private TextMeshProUGUI highScoreTxt;
+    [SerializeField] private Text scoreTxt;
+    [SerializeField] private Text highScoreTxt;
     [SerializeField] private GameObject gameOver;
 
     [SerializeField] private Transform spawner;

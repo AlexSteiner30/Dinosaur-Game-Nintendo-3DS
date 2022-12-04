@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject gameManager;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float jumpHeight;
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Obstacle")
         {
-            gameManager.GameOver();
+            gameManager.GetComponent<GameManager>().GameOver();
         }
     }
 
