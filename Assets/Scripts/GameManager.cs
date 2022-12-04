@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
             highScoreTxt.text = highScore.ToString();
 
 
+        UnityEngine.N3DS.Keyboard.SetType(N3dsKeyboardType.Qwerty);
+
         StartCoroutine(Spawn());
         StartCoroutine(Score());
     }
@@ -125,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator NewGame()
     {
-        while (!Input.GetKeyDown(KeyCode.Space))
+        while (!Input.GetKeyDown(KeyCode.Space) || !UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.X))
         {
             yield return null;
         }

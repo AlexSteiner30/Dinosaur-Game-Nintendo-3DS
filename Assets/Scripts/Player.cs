@@ -10,9 +10,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private bool isGrounded;
 
+    private void Start()
+    {
+        UnityEngine.N3DS.Keyboard.SetType(N3dsKeyboardType.Qwerty);
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.Up) || Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
