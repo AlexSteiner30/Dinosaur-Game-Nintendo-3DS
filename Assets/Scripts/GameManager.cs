@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator NewGame()
     {
-        while (!Input.GetKeyDown(KeyCode.Space) || !UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.X))
+        while (!UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.Up))
         {
             yield return null;
         }
