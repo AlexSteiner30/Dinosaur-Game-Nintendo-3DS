@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
         else if (highScore >= 10000 && highScore <= 99999)
             highScoreTxt.text = highScore.ToString();
 
-
         UnityEngine.N3DS.Keyboard.SetType(N3dsKeyboardType.Qwerty);
 
         StartCoroutine(Spawn());
